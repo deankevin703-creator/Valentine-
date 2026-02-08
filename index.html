@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Propose Day</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #ffe6f0;
+        padding-top: 40px;
+    }
+    img {
+        max-width: 300px;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+    .hidden {
+        display: none;
+    }
+    button {
+        padding: 12px 30px;
+        font-size: 18px;
+        margin: 10px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+    }
+    .yes {
+        background: #ff4d6d;
+        color: white;
+    }
+    .no {
+        background: gray;
+        color: white;
+        cursor: not-allowed;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Clickable Image -->
+<img src="https://i.imgur.com/8Km9tLL.jpg" id="startImage" onclick="startExperience()">
+
+<!-- Message Section -->
+<div id="message" class="hidden">
+    <h1>Welcome ❤️</h1>
+    <p><strong>As it's Propose Day, I love you.<br>Will you be my Valentine?</strong></p>
+
+    <button class="yes" onclick="showDance()">Yes</button>
+    <button class="no" disabled>No</button>
+</div>
+
+<!-- Dancing GIF -->
+<div id="dance" class="hidden">
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+</div>
+
+<script>
+function startExperience() {
+    document.getElementById("startImage").style.display = "none";
+    document.getElementById("message").classList.remove("hidden");
+
+    // Play music safely after user interaction
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.4;
+    music.play();
+}
+
+function showDance() {
+    document.getElementById("message").style.display = "none";
+    document.getElementById("dance").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
